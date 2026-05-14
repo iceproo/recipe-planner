@@ -1,0 +1,14 @@
+# Never commit these to GitHub
+.env.local
+.env
+
+# Next.js build output
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db

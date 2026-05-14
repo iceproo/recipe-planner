@@ -1,0 +1,57 @@
+// prisma/schema.prisma
+// This file defines your database tables.
+// After editing, run: npm run db:push
+// to apply changes to your Neon database.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Recipe {
+  id          Int          @id @default(autoincrement())
+  title       String
+  description String?
+  cookTime    Int?         // in minutes
+  servings    String?
+  sourceUrl   String?      // where the recipe was imported from
+  sourceType  String?      // "schema", "ai", or "manual"
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  // Relations: one recipe has many ingredients, steps, labels
+  ingredients Ingredient[]
+  steps       Step[]
+  labels      Label[]
+}
+
+model Ingredient {
+  id       Int     @id @default(autoincrement())
+  amount   String?
+  unit     String?
+  name     String
+
+  recipe   Recipe  @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  recipeId Int
+}
+
+model Step {
+  id       Int    @id @default(autoincrement())
+  order    Int
+  text     String
+
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  recipeId Int
+}
+
+model Label {
+  id       Int    @id @default(autoincrement())
+  name     String
+
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  recipeId Int
+}

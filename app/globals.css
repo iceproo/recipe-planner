@@ -1,0 +1,240 @@
+/* app/globals.css */
+/* Global styles applied to every page.
+   To change the look of the whole app, edit here.
+   Per-component styles go in the component files. */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #faf9f6;
+  color: #1a1a18;
+  line-height: 1.5;
+}
+
+/* ---- Navigation ---- */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 56px;
+  background: #fff;
+  border-bottom: 1px solid #e0ddd6;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a18;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 0.75rem; align-items: center; }
+.nav-link {
+  font-size: 0.875rem;
+  color: #666;
+  text-decoration: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.nav-link:hover { background: #f5f3ee; color: #1a1a18; }
+.nav-link-primary {
+  background: #2d2d2a;
+  color: #fff !important;
+}
+.nav-link-primary:hover { background: #1a1a18 !important; }
+
+/* ---- Page container ---- */
+.main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* ---- Cards ---- */
+.card {
+  background: #fff;
+  border: 1px solid #e0ddd6;
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ---- Typography ---- */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+h3 {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid #e0ddd6;
+  padding-bottom: 0.3rem;
+}
+
+/* ---- Form elements ---- */
+label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 0.35rem;
+}
+input[type="text"],
+input[type="url"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #e0ddd6;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #1a1a18;
+  background: #faf9f6;
+  outline: none;
+  transition: border-color 0.15s;
+  margin-bottom: 1rem;
+}
+input:focus, textarea:focus { border-color: #b5a98f; background: #fff; }
+textarea { resize: vertical; min-height: 80px; }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.btn-primary { background: #2d2d2a; color: #fff; }
+.btn-primary:hover { background: #1a1a18; }
+.btn-primary:disabled { background: #ccc; cursor: not-allowed; }
+.btn-ghost { background: transparent; color: #666; border: 1px solid #e0ddd6; }
+.btn-ghost:hover { background: #f5f3ee; }
+.btn-danger { background: #fdf2f0; color: #c0392b; border: 1px solid #f5c6c0; }
+.btn-danger:hover { background: #fce4e0; }
+
+/* ---- Status messages ---- */
+.status {
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.status-loading { background: #f0ede6; color: #666; border: 1px solid #e0ddd6; }
+.status-error { background: #fdf2f0; color: #c0392b; border: 1px solid #f5c6c0; }
+.status-success { background: #f0f7f0; color: #2e7d32; border: 1px solid #c8e6c9; }
+
+/* ---- Spinner animation ---- */
+.spinner {
+  width: 14px; height: 14px;
+  border: 2px solid #ccc;
+  border-top-color: #555;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---- Recipe meta pills ---- */
+.meta-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0; }
+.meta-pill {
+  font-size: 0.8rem;
+  color: #666;
+  background: #f5f3ee;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+}
+
+/* ---- Ingredient chips ---- */
+.ingredient-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #f5f3ee;
+  border: 1px solid #e0ddd6;
+  border-radius: 6px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.82rem;
+  margin: 0.2rem;
+}
+.ingredient-chip .amount { color: #b5a98f; font-weight: 500; }
+
+/* ---- Steps ---- */
+.step-item {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.step-num {
+  width: 22px; height: 22px;
+  background: #2d2d2a; color: #fff;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ---- Source badge ---- */
+.source-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 99px;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+.badge-schema { background: #e8f5e9; color: #2e7d32; }
+.badge-ai     { background: #fff3e0; color: #e65100; }
+.badge-manual { background: #e8eaf6; color: #3949ab; }
+
+/* ---- Recipe grid on home page ---- */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 480px) {
+  .main { padding: 1rem 0.75rem; }
+  h1 { font-size: 1.4rem; }
+}
